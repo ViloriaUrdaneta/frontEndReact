@@ -1,5 +1,5 @@
-.book {
-    position: absolute;
+
+.book {  
     width: 209px;
     height: 450px;
     left: 447px;
@@ -11,17 +11,32 @@
 }
 
 .title {
-    
     width: 309px;
     height: 63px;
     left: 600px;
-    top: 583px;
+    top: 700px;
 
     font-weight: 500;
     font-size: 40px;
     line-height: 48px;
 
-    transform: rotate(-90deg);
     color: #C1CCD2;
 
 }
+
+.author {
+    width: 350px;
+    height: 71px;
+    left: 266px;
+    top: 400px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+
+}
+
