@@ -3,22 +3,22 @@ import { Book } from '../../models/book.model';
 import BookVolume from '../pure/book';
 import CreateBook from '../pure/forms/createBook';
 
+import { getBooks } from '../../services/axiosService';
+
 
 const Library = () => {
 
-    const defaultBook = new Book('Ejemplo', 'John Doe');
+    //const defaultBook = new Book('Ejemplo', 'John Doe');
 
 
-    const [books, setBooks] = useState([defaultBook]);
+    const [books, setBooks] = useState({});
    // const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
-        console.log('Modificacion de library');
-        //setLoading(false);
-        return () => {
-            console.log('Modificacion de library, va a desaparecer')
-        };
+        getBooks()
+        .then((response) => {console.log(response)})
+        .catch((error) => {alert('error: ', error)})
     }, [books]);
 
     function addBook(book){
