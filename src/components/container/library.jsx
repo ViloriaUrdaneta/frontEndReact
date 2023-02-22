@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Book } from '../../models/book.model';
+//import { Book } from '../../models/book.model';
 import BookVolume from '../pure/book';
-import CreateBook from '../pure/forms/createBook';
+//import CreateBook from '../pure/forms/createBook';
 
 import { getBooks } from '../../services/axiosService';
 
@@ -10,22 +10,25 @@ const Library = () => {
 
     //const defaultBook = new Book('Ejemplo', 'John Doe');
 
-
-    const [books, setBooks] = useState({});
-   // const [loading, setLoading] = useState(true);
+    const [books, setBooks] = useState([]);
 
 
     useEffect(() => {
         getBooks()
-        .then((response) => {console.log(response)})
+        .then((response) => {
+            if(response.status === 200){
+                setBooks(response.data)
+                console.log(response.data)
+            }})
         .catch((error) => {alert('error: ', error)})
-    }, [books]);
+    }, []);
 
+    /*
     function addBook(book){
         const tempBooks = [...books]
         tempBooks.push(book);
         setBooks(tempBooks);
-    }
+    }*/
 
     const Stand = () => {
         return (
@@ -61,9 +64,9 @@ const Library = () => {
             <div>
                 {bookStand}
             </div>
-            <div>
+            {/*<div>
                 <CreateBook add={addBook}></CreateBook>
-            </div>
+            </div>*/}
         </div>
     );
 };
