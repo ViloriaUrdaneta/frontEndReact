@@ -1,5 +1,5 @@
 import APIRequest from "../utils/config/axios.config";
 
-export function getBooks(){
-    return APIRequest.get('/books');
+export function getBookVolumes(){
+    return APIRequest.get('/books/volumes');
 }

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import BookVolume from '../pure/book';
 //import CreateBook from '../pure/forms/createBook';
 
-import { getBooks } from '../../services/axiosService';
+import { getBookVolumes } from '../../services/axiosService';
 
 
 const Library = () => {
@@ -14,7 +14,7 @@ const Library = () => {
 
 
     useEffect(() => {
-        getBooks()
+        getBookVolumes()
         .then((response) => {
             if(response.status === 200){
                 setBooks(response.data)
