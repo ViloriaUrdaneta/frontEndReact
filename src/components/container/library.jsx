@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
-//import { Book } from '../../models/book.model';
 import BookVolume from '../pure/book';
-//import CreateBook from '../pure/forms/createBook';
-
 import { getBookVolumes } from '../../services/axiosService';
+import '../../styles/stand.scss';
+//import CreateBook from '../pure/forms/createBook';
 
 
 const Library = () => {
 
-    //const defaultBook = new Book('Ejemplo', 'John Doe');
-
     const [books, setBooks] = useState([]);
-
 
     useEffect(() => {
         getBookVolumes()
@@ -23,16 +19,9 @@ const Library = () => {
         .catch((error) => {alert('error: ', error)})
     }, []);
 
-    /*
-    function addBook(book){
-        const tempBooks = [...books]
-        tempBooks.push(book);
-        setBooks(tempBooks);
-    }*/
-
     const Stand = () => {
         return (
-            <div>
+            <div className='stand'>
                 {
                     books.map((book, index) => {
                         return (
@@ -59,6 +48,14 @@ const Library = () => {
     }
 
 
+    /* función traida del formulario addBook para crear nuevos libros
+    function addBook(book){
+        const tempBooks = [...books]
+        tempBooks.push(book);
+        setBooks(tempBooks);
+    }*/
+
+
     return (
         <div>
             <div>
@@ -70,8 +67,6 @@ const Library = () => {
         </div>
     );
 };
-
-
 
 
 export default Library;

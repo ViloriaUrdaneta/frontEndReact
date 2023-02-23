@@ -1,42 +1,43 @@
 
 .book {  
-    width: 209px;
-    height: 450px;
-    left: 447px;
-    top: 203px;
-
-    background: #1B5F85;
+    
+    width: 100px;
+    height: 350px;
+    margin-right: 10px;
+    
+    background: hsl(202, 66%, 31%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+    overflow: hidden;
+    
+    
 }
 
 .title {
-    width: 309px;
-    height: 63px;
-    left: 600px;
-    top: 700px;
-
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 48px;
+    
+    font-family:Arial, Helvetica, sans-serif;
+    font-style:normal;
+    transform: rotate(-90deg);
+    //white-space:nowrap;
+    text-overflow: ellipsis;
+    
+    overflow: hidden;
+    
 
     color: #C1CCD2;
+    
 
 }
 
 .author {
-    width: 350px;
-    height: 71px;
-    left: 266px;
-    top: 400px;
 
-    font-family: 'Inter';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    padding: 40px;
+    transform: rotate(-90deg);
+    margin-top: 50px;
+    //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    color: #000000;
+    color: #C1CCD2;
 
 }
-

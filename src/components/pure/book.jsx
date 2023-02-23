@@ -11,12 +11,13 @@ const BookVolume = ({ book }) => {
     return (
         <div>
             <div className='book'>
-                <h2 className='title'>
-                    {book.title}
-                </h2>
                 <h4 className='author'>
                     {book.author}
                 </h4>
+                <h3 className='title'>
+                    {book.title}
+                </h3>
+                
             </div>
         </div>
     );
