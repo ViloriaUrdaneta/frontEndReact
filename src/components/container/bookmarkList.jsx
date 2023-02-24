@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BookmarkComponent from '../pure/bookmark';
+import BookmarkCard from '../pure/bookmark';
 import { getBookmarks } from '../../services/axiosService';
 
 const BookmarkList = () => {
@@ -22,9 +22,9 @@ const BookmarkList = () => {
                 {
                     bookmarks.map((bookmark, index) => {
                         return (
-                            <BookmarkComponent 
+                            <BookmarkCard 
                                 key={index} bookmark={bookmark}>
-                            </BookmarkComponent>
+                            </BookmarkCard>
                         )
                     })
                 }

@@ -5,7 +5,7 @@ import { Bookmark } from '../../models/bookmark.model';
 import '../../styles/book.scss';
 
 
-const BookmarkComponent = ({ bookmark }) => {
+const BookmarkCard = ({ bookmark }) => {
 
 
     return (
@@ -23,9 +23,9 @@ const BookmarkComponent = ({ bookmark }) => {
 };
 
 
-BookmarkComponent.propTypes = {
+BookmarkCard.propTypes = {
     bookmark : PropTypes.instanceOf(Bookmark)
 };
 
 
-export default BookmarkComponent;
+export default BookmarkCard;
