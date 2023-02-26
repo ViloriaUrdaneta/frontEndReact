@@ -8,13 +8,15 @@ import '../../styles/book.scss';
 const GoogleBookCard = ({ googleBook }) => {
 
 
+
     return (
         <div>
-            <div className='googleBook'>
-                <h4 className='title'>
+            <div>
+                <h4>
                     {googleBook.title}
                 </h4>
             </div>
+                <img src={googleBook.thumbnail} alt=''/>
         </div>
     );
 };

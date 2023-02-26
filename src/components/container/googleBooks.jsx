@@ -1,20 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import GoogleBookCard from '../pure/googleBook';
 import { getGoogle } from '../../services/axiosService';
+
 
 const GoogleBooks = () => {
 
     const [googleBooks, setGoogleBooks] = useState([]);
+    const [search, setSearch] = useState('');
 
-    useEffect(() => {
-        getGoogle()
+    const handleInputChange = (event) => {
+        setSearch(event.target.value);
+    };
+
+    const handleClick = () => {
+        getGoogle(search)
         .then((response) => {
             if(response.status === 200){
                 setGoogleBooks(response.data)
                 console.log(response.data)
             }})
         .catch((error) => {alert('error: ', error)})
-    }, []);
+    }
+    
+    
 
     const GoogleBooksCards = () => {
         return (
@@ -26,8 +34,7 @@ const GoogleBooks = () => {
                             </GoogleBookCard>
                         )
                     })
-                }
-                
+                }   
             </div>
         )
     }
@@ -47,6 +54,11 @@ const GoogleBooks = () => {
 
     return (
         <div>
+            <div>
+                <input type="text" value={search} onChange={handleInputChange} />
+                <button onClick={handleClick}>Obtener datos</button>
+            </div>
+            
             <div>
                 {results}
             </div>
