@@ -1,6 +1,5 @@
 
-.book {  
-    
+.book {    
     width: 100px;
     height: 350px;
     margin-right: 10px;
@@ -8,13 +7,10 @@
     background: hsl(202, 66%, 31%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    overflow: hidden;
-    
-    
+    overflow: hidden;  
 }
 
 .title {
-    
     font-family:Arial, Helvetica, sans-serif;
     font-style:normal;
     transform: rotate(-90deg);
@@ -23,14 +19,10 @@
     
     overflow: hidden;
     
-
     color: #C1CCD2;
-    
-
 }
 
 .author {
-
     font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     padding: 40px;
@@ -39,5 +31,29 @@
     //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     color: #C1CCD2;
+}
 
+.googleBook {
+    width: 579px;
+    height: 150px;
+    left: 67px;
+    top: 198px;
+    display: flex;
+    margin: 10px;
+
+    background: #D9D9D9;
+    border-radius: 16px;
+}
+
+.googleThumbnail {
+    margin: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.googleTitle {
+    margin-top: 15px;
+}
+
+.googleId {
+    display: none;
 }

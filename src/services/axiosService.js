@@ -15,3 +15,7 @@ export function getBookmarkByBook(){
 export function getGoogle(term){
     return APIRequest.post('/google', { term: term });
 }
+
+export function postGoogleBook(id){
+    return APIRequest.post(`/google/${id}`);
+}
