@@ -8,8 +8,8 @@ export function getBookmarks(){
     return APIRequest.get('/bookmarks');
 }
 
-export function getBookmarkByBook(){
-    return APIRequest.get('/bookmarks/bybook/:bookId');
+export function getBookmarkByBook(id){
+    return APIRequest.get(`/bookmarks/bybook/${id}`);
 }
 
 export function getGoogle(term){

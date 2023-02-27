@@ -1,9 +1,11 @@
 export class Book {
     title = '';
     author = '';
+    id = '';
 
-    constructor(title, author){
+    constructor(title, author, id){
         this.title = title;
         this.author = author;
+        this.id = id;
     }
 }

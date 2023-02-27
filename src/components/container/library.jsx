@@ -5,19 +5,25 @@ import '../../styles/stand.scss';
 //import CreateBook from '../pure/forms/createBook';
 
 
-const Library = () => {
+const Library = (props) => {
 
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        getBookVolumes()
-        .then((response) => {
-            if(response.status === 200){
-                setBooks(response.data)
-                console.log(response.data)
-            }})
-        .catch((error) => {alert('error: ', error)})
-    }, []);
+        function reset(){
+            getBookVolumes()
+            .then((response) => {
+                if(response.status === 200){
+                    setBooks(response.data)
+                    console.log(response.data)
+                }})
+            .catch((error) => {alert('error: ', error)})
+        }
+        return () => {
+            reset();
+            console.log('se reseteo library')
+        };
+    }, [props.stateToReset]);
 
     const Stand = () => {
         return (

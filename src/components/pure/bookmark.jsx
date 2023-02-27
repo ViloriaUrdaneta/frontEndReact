@@ -7,7 +7,6 @@ import '../../styles/book.scss';
 
 const BookmarkCard = ({ bookmark }) => {
 
-
     return (
         <div>
             <div className='bookmark'>

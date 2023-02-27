@@ -17,7 +17,9 @@ const BookVolume = ({ book }) => {
                 <h3 className='title'>
                     {book.title}
                 </h3>
-                
+                <p className='bookId'>
+                    {book.id}
+                </p>
             </div>
         </div>
     );

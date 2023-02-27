@@ -3,7 +3,7 @@ import GoogleBookCard from '../pure/googleBook';
 import { getGoogle } from '../../services/axiosService';
 
 
-const GoogleBooks = () => {
+const GoogleBooks = (props) => {
 
     const [googleBooks, setGoogleBooks] = useState([]);
     const [search, setSearch] = useState('');
@@ -30,7 +30,7 @@ const GoogleBooks = () => {
                 {
                     googleBooks.map((googleBook, index) => {
                         return (
-                            <GoogleBookCard key={index} googleBook={googleBook}>
+                            <GoogleBookCard key={index} googleBook={googleBook} triggerReset={props.resetState}>
                             </GoogleBookCard>
                         )
                     })
