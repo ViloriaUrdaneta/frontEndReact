@@ -5,12 +5,18 @@ import { Book } from '../../models/book.model';
 import '../../styles/book.scss';
 
 
-const BookVolume = ({ book }) => {
+const BookVolume = ({ book, searchBookmarksBy, BookID }) => {
 
+    function showBookmarks(){
+        BookID = book.id;
+        searchBookmarksBy(BookID);
+        //setBookIdSearched(book.id);
+        console.log('funcion showBookmarks en BookVolume, BookId: ',book.id )
+    }
 
     return (
         <div>
-            <div className='book'>
+            <div className='book' onClick={showBookmarks}>
                 <h4 className='author'>
                     {book.author}
                 </h4>
@@ -27,7 +33,8 @@ const BookVolume = ({ book }) => {
 
 
 BookVolume.propTypes = {
-    book : PropTypes.instanceOf(Book)
+    book : PropTypes.instanceOf(Book),
+    searchBookmarksBy: PropTypes.func,
 };
 
 

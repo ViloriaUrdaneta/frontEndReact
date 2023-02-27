@@ -8,7 +8,7 @@ export function getBookmarks(){
     return APIRequest.get('/bookmarks');
 }
 
-export function getBookmarkByBook(id){
+export function getBookmarksByBook(id){
     return APIRequest.get(`/bookmarks/bybook/${id}`);
 }
 

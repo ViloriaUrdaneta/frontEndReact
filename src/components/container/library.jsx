@@ -2,41 +2,55 @@ import React, { useState, useEffect } from 'react';
 import BookVolume from '../pure/book';
 import { getBookVolumes } from '../../services/axiosService';
 import '../../styles/stand.scss';
+import BookmarksByBook from './bookmarksByBook';
 //import CreateBook from '../pure/forms/createBook';
 
 
 const Library = (props) => {
 
     const [books, setBooks] = useState([]);
+    const [bookIdSearched, setBookIdSearched] = useState('');
+    
 
     useEffect(() => {
         function reset(){
             getBookVolumes()
-            .then((response) => {
-                if(response.status === 200){
-                    setBooks(response.data)
-                    console.log(response.data)
-                }})
-            .catch((error) => {alert('error: ', error)})
+                .then((response) => {
+                    if(response.status === 200){
+                        setBooks(response.data)
+                        console.log(response.data)
+                    }})
+                .catch((error) => {alert('error: ', error)});
         }
         return () => {
             reset();
             console.log('se reseteo library')
         };
-    }, [props.stateToReset]);
+    }, [props.stateToReset, bookIdSearched]);
 
+    
+    const searchBookmarks = (bookID) => {
+        setBookIdSearched((prevIdsearched) => {
+            console.log(`Current value of myState: ${prevIdsearched}`);
+            console.log(`New value of myState: ${bookID}`);
+            return bookID
+        })
+        console.log('funcion searchBookmarks en library. BookId: ', bookIdSearched )
+    }
+
+
+    //Stand de libros
     const Stand = () => {
         return (
             <div className='stand'>
                 {
                     books.map((book, index) => {
                         return (
-                            <BookVolume key={index} book={book}>
+                            <BookVolume key={index} book={book} searchBookmarksBy={searchBookmarks} bookID={''}>
                             </BookVolume>
                         )
                     })
-                }
-                
+                }   
             </div>
         )
     }
@@ -54,7 +68,8 @@ const Library = (props) => {
     }
 
 
-    /* función traida del formulario addBook para crear nuevos libros
+    /*
+    función traida del formulario addBook para crear nuevos libros
     function addBook(book){
         const tempBooks = [...books]
         tempBooks.push(book);
@@ -67,7 +82,12 @@ const Library = (props) => {
             <div>
                 {bookStand}
             </div>
-            {/*<div>
+            <div>
+                <BookmarksByBook bookIdSearched={bookIdSearched} ></BookmarksByBook>
+            </div>
+            
+            {/*
+            <div>
                 <CreateBook add={addBook}></CreateBook>
             </div>*/}
         </div>
