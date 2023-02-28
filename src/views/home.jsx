@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GoogleBooks from '../components/container/googleBooks';
 import Library from '../components/container/library'
+import '../styles/home.scss';
 
 const Home = () => {
 
@@ -11,10 +12,14 @@ const Home = () => {
     }
 
     return (
-        <div>
-            <GoogleBooks resetState={handleReset} ></GoogleBooks>
+        <div className='home'>
+            <div className='bookSearcher'>
+                <GoogleBooks resetState={handleReset}></GoogleBooks>
+            </div>
+            <div className='library'>
             <h1>Your Books</h1>
             <Library stateToReset={stateToReset}></Library>
+            </div>
         </div>
     );
 }

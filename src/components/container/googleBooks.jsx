@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleBookCard from '../pure/googleBook';
 import { getGoogle } from '../../services/axiosService';
-
+import '../../styles/bookSearcher.scss'
 
 const GoogleBooks = (props) => {
 
@@ -26,7 +26,7 @@ const GoogleBooks = (props) => {
 
     const GoogleBooksCards = () => {
         return (
-            <div className='stand'>
+            <div>
                 {
                     googleBooks.map((googleBook, index) => {
                         return (
@@ -53,7 +53,7 @@ const GoogleBooks = (props) => {
 
 
     return (
-        <div>
+        <div className='searcher'>
             <div>
                 <input type="text" value={search} onChange={handleInputChange} />
                 <button onClick={handleClick}>Obtener datos</button>

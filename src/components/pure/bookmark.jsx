@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Bookmark } from '../../models/bookmark.model';
 
-import '../../styles/book.scss';
+import '../../styles/bookmark.scss';
 
 
 const BookmarkCard = ({ bookmark }) => {

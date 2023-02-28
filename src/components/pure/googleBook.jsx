@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { GoogleBook } from '../../models/googleBook.model';
 import { postGoogleBook } from '../../services/axiosService'
 
-import '../../styles/book.scss';
+import '../../styles/googlebook.scss';
 
 
 const GoogleBookCard = ({ googleBook, triggerReset }) => {
