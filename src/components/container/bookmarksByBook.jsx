@@ -7,6 +7,11 @@ import CreateBookmark from '../pure/forms/createBookmark';
 const BookmarksByBook = ({ bookIdSearched }) => {
 
     const [bookmarks, setBookmarks] = useState([]);
+    const [stateToReset, setStateToReset] = useState(false);
+
+    function resetState() {
+        setStateToReset(prevState => !prevState);
+    }
 
     useEffect(() => {
         if(bookIdSearched !== ''){
@@ -18,7 +23,7 @@ const BookmarksByBook = ({ bookIdSearched }) => {
                 }})
             .catch((error) => {console.log(error, 'boobkId nulo')})
         }
-    }, [bookIdSearched]);
+    }, [bookIdSearched, stateToReset]);
 
     const Bookmarks = () => {
         return (
@@ -47,7 +52,7 @@ const BookmarksByBook = ({ bookIdSearched }) => {
                     <Bookmarks></Bookmarks>
                 </div>
                 <div>
-                    <CreateBookmark book={book}></CreateBookmark>
+                    <CreateBookmark book={book} triggerReset={resetState}></CreateBookmark>
                 </div>
             </div>
         )
@@ -62,7 +67,7 @@ const BookmarksByBook = ({ bookIdSearched }) => {
             <div>
                 <h3>No hay marcapáginas para este libro todavía</h3>
                 <div>
-                    <CreateBookmark book={book}></CreateBookmark>
+                    <CreateBookmark book={book} triggerReset={resetState}></CreateBookmark>
                 </div>
             </div>
         )

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { postBookmark } from '../../../services/axiosService'
-import BookmarkCard from '../bookmark';
+//import BookmarkCard from '../bookmark';
 
-const CreateBookmark = ({ book }) => {
+const CreateBookmark = ({ book, triggerReset }) => {
 
-    const [bookmark, setBookmark] = useState([]);
+    //const [bookmark, setBookmark] = useState([]);
 
     const [page, setPage] = useState('');
     const [resume, setResume] = useState('');
@@ -17,18 +17,20 @@ const CreateBookmark = ({ book }) => {
         setResume(event.target.value);
     };
 
-    const handleClick = () => {
-        postBookmark(page, resume, book)
-        .then((response) => {
-            if(response.status === 200){
-                setBookmark(response.data)
-                console.log(response.data)
-            }})
-        .catch((error) => {console.log(error, 'error en postBookamrk')})
+    const handleClick = async () => {
+        await postBookmark(page, resume, book)
+            .then((response) => {
+                if(response.status === 200){
+                    //setBookmark(response.data)
+                    console.log(response.data)
+                }})
+            .catch((error) => {console.log(error, 'error en postBookamrk')});
+        triggerReset();
     }
 
+    /*
+    Nuevo Bootmark
     let newBookmark;
-
     if(bookmark !== null){
         newBookmark = (
             <div>
@@ -36,11 +38,12 @@ const CreateBookmark = ({ book }) => {
             </div>
         )
     }
+    */
 
     return (
         <div>
             <div>
-                {newBookmark}
+                {/*newBookmark*/}
             </div>
             <div>
                 <input id='inputPage' type='text' value={page} onChange={handleInputPageChange}></input>
@@ -52,7 +55,8 @@ const CreateBookmark = ({ book }) => {
 }
 
 CreateBookmark.propTypes = {
-    book: PropTypes.string
+    book: PropTypes.string,
+    triggerReset: PropTypes.func.isRequired
 };
 
 export default CreateBookmark;
