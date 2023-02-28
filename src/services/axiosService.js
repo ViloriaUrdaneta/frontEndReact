@@ -19,3 +19,7 @@ export function getGoogle(term){
 export function postGoogleBook(id){
     return APIRequest.post(`/google/${id}`);
 }
+
+export function postBookmark(page, resume, book){
+    return APIRequest.post('/bookmarks', { page: page, resume: resume, book: book });
+}
