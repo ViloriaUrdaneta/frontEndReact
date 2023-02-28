@@ -57,8 +57,7 @@ const GoogleBooks = (props) => {
             <div>
                 <input type="text" value={search} onChange={handleInputChange} />
                 <button onClick={handleClick}>Obtener datos</button>
-            </div>
-            
+            </div>  
             <div>
                 {results}
             </div>

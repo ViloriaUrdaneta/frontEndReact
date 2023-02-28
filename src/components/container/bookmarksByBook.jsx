@@ -8,8 +8,6 @@ const BookmarksByBook = ({ bookIdSearched }) => {
 
     const [bookmarks, setBookmarks] = useState([]);
 
-    
-
     useEffect(() => {
         if(bookIdSearched !== ''){
             getBookmarksByBook(bookIdSearched)
