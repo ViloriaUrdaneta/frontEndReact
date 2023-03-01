@@ -1,10 +1,19 @@
 .bookmark {    
-    width: 100px;
-    height: 350px;
-    margin-right: 10px;
-    
-    background: hsl(202, 66%, 31%);
+    width: 8rem;
+    height: 10rem;
+    background: #A4C3D5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    overflow: hidden;  
+    border-radius: 10px; 
 }
+
+.bookmarkForm {
+    max-width: 18rem;
+    background: #0B2838;
+    color: beige;
+
+}
+
+.bookmarkFormHeader {
+    background: #165272;
+}
+

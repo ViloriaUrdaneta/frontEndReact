@@ -12,13 +12,15 @@ const Home = () => {
     }
 
     return (
-        <div className='home'>
-            <div className='bookSearcher'>
-                <GoogleBooks resetState={handleReset}></GoogleBooks>
-            </div>
-            <div className='library'>
-            <h1>Your Books</h1>
-            <Library stateToReset={stateToReset}></Library>
+        <div className='container-fluid'>
+            <div className='row vh-100'>
+                <div className='col-12 col-sm-6 col-md-4 bookSearcher' >
+                    <GoogleBooks resetState={handleReset}></GoogleBooks>
+                </div>
+                <div className='col-12 col-sm-6 col-md-8 library'>
+                <h1 className='display-2 m-4'>Tus libros</h1>
+                    <Library stateToReset={stateToReset}></Library>
+                </div>
             </div>
         </div>
     );

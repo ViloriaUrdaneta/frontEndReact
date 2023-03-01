@@ -16,13 +16,13 @@ const BookVolume = ({ book, searchBookmarksBy, BookID }) => {
 
     return (
         <div>
-            <div className='book' onClick={showBookmarks}>
-                <h4 className='author'>
+            <div className='book text-wrap book-action' onClick={showBookmarks}>
+                <p className='author text-end fs-6 fw-bold w-10 h-20 '>
                     {book.author}
-                </h4>
-                <h3 className='title'>
+                </p>
+                <h6 className='title text-start fw-bold text-uppercase w-10 h-20 '>
                     {book.title}
-                </h3>
+                </h6>
                 <p className='bookId'>
                     {book.id}
                 </p>

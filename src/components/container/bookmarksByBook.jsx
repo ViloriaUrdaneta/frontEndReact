@@ -3,6 +3,7 @@ import { getBookmarksByBook } from '../../services/axiosService';
 import BookmarkCard from '../pure/bookmark';
 import PropTypes from 'prop-types';
 import CreateBookmark from '../pure/forms/createBookmark';
+import '../../styles/stand.scss';
 
 const BookmarksByBook = ({ bookIdSearched }) => {
 
@@ -27,7 +28,7 @@ const BookmarksByBook = ({ bookIdSearched }) => {
 
     const Bookmarks = () => {
         return (
-            <div>
+            <div className='stand'>
                 {
                     bookmarks.map((bookmark, index) => {
                         return (
@@ -59,13 +60,12 @@ const BookmarksByBook = ({ bookIdSearched }) => {
     } else if(bookmarks.length === 0 && book === '') {
         bookmarksTable = (
             <div>
-                <h3>No hay libro seleccionado</h3>
             </div>
         )
     } else if(bookmarks.length === 0 && book !== ''){
         bookmarksTable = (
             <div>
-                <h3>No hay marcapáginas para este libro todavía</h3>
+                <h6 className='display-6 m-3'>No hay marcapáginas para este libro todavía</h6>
                 <div>
                     <CreateBookmark book={book} triggerReset={resetState}></CreateBookmark>
                 </div>

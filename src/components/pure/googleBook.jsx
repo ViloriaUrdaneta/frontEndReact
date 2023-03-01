@@ -19,19 +19,27 @@ const GoogleBookCard = ({ googleBook, triggerReset }) => {
         triggerReset();
     }
 
+
     return (
         <div>
-            <div className='googleBook'>
-                <img src={googleBook.thumbnail} alt='' className='googleThumbnail'/>
-                <div>
-                    <h4 className='googleTitle'>
-                        {googleBook.title}
-                    </h4>
-                    <h3>
-                        {googleBook.authors}
-                    </h3>
-                    <a href={googleBook.link} target='_blank' rel="noreferrer"> Google PLay </a>
-                    <button onClick={addGoogleBook}>Agregar a la biblioteca</button>
+            <div className='card googleBook'>
+                <div className='row g-0'>
+                    <div className='col-md-4'>
+                        <img src={googleBook.thumbnail} alt='' className='googleThumbnail img-fluid'/>
+                    </div>
+                    <div className='col-md-8'>
+                        <div className='card-body'>
+                            <h4 className='card-title'>
+                                {googleBook.title}
+                            </h4>
+                            <h6 className='card-text'>
+                                {googleBook.authors}
+                            </h6>
+                            <button onClick={addGoogleBook} className='btn btn-outline-danger btn-sm'>Agregar a la biblioteca</button>
+                            <br></br>
+                            <a href={googleBook.link} target='_blank' rel="noreferrer" className='card-link link-primary'> Ir a Google PLay </a>
+                        </div>
+                    </div>
                 </div>
             </div>   
         </div>

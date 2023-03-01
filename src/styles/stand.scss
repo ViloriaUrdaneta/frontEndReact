@@ -4,4 +4,11 @@
     padding: 10px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;  
+    scroll-behavior: smooth;
+}
+
+.line {
+    border: 5px solid #0B2838;
+    
+    box-shadow: 17px 16px 14px rgba(0, 0, 0, 0.33);
 }

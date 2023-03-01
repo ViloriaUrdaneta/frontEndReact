@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { postBookmark } from '../../../services/axiosService'
 //import BookmarkCard from '../bookmark';
+import '../../../styles/bookmark.scss';
 
 const CreateBookmark = ({ book, triggerReset }) => {
 
@@ -42,13 +43,24 @@ const CreateBookmark = ({ book, triggerReset }) => {
 
     return (
         <div>
-            <div>
-                {/*newBookmark*/}
-            </div>
-            <div>
-                <input id='inputPage' type='text' value={page} onChange={handleInputPageChange}></input>
-                <input id='inputResume' type='text' value={resume} onChange={handleInputResumeChange}></input>
-                <button  onClick={handleClick}> Add Bookmark</button>
+            <div className='card m-2 bookmarkForm text-center'>
+                <div className='card-header fw-bold bookmarkFormHeader'>
+                    Agregar marcapáginas
+                </div>
+                <div className='card-body'>
+                    <div className='row m-1'>
+                        <p className='form-label col-auto'>
+                            ¿En qué página vas?
+                        </p>
+                        <input id='inputPage' type='text' value={page} onChange={handleInputPageChange} className='form-control col auto'></input>
+                    </div>
+                    <p className='form-label mt-3'>
+                        Resumen de la lectura
+                    </p>
+                    <textarea  id='inputResume' type='text' value={resume} onChange={handleInputResumeChange} className='form-control mb-4' rows="3"></textarea>
+
+                    <button  onClick={handleClick} className='btn btn-secondary '>Agregar marcapáginas</button>
+                </div>
             </div>
         </div>
     );

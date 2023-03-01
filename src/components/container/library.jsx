@@ -50,8 +50,9 @@ const Library = (props) => {
                             </BookVolume>
                         )
                     })
-                }   
+                }  
             </div>
+
         )
     }
 

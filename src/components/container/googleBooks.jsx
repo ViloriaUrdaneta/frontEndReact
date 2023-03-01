@@ -46,20 +46,21 @@ const GoogleBooks = (props) => {
     } else{
         results = (
             <div>
-                <h3>No hay libros todavía</h3>
             </div>
         )
     }
 
 
     return (
-        <div className='searcher'>
-            <div>
-                <input type="text" value={search} onChange={handleInputChange} />
-                <button onClick={handleClick}>Obtener datos</button>
-            </div>  
-            <div>
-                {results}
+        <div className='searcher container'>
+            <div className='row'>
+                <div className='input-group searcherInput'>
+                    <input type="text" value={search} onChange={handleInputChange} className='form-control' />
+                    <button onClick={handleClick} className='btn btn-danger'>Buscar libro</button>
+                </div>  
+                <div>
+                    {results}
+                </div>
             </div>
         </div>
     );
