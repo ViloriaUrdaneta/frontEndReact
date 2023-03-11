@@ -9,6 +9,7 @@ const BookVolume = ({ book, searchBookmarksBy, BookID }) => {
 
     function showBookmarks(){
         BookID = book.id;
+        //triggerResetBookmarks();
         searchBookmarksBy(BookID);
         //setBookIdSearched(book.id);
         console.log('funcion showBookmarks en BookVolume, BookId: ',book.id )
@@ -16,13 +17,13 @@ const BookVolume = ({ book, searchBookmarksBy, BookID }) => {
 
     return (
         <div>
-            <div className='book text-wrap book-action' onClick={showBookmarks}>
-                <p className='author text-end fs-6 fw-bold w-10 h-20 '>
+            <div className='book text-wrap' onClick={showBookmarks}>
+                {/*<p className='author fs-7 fw-bold'>
                     {book.author}
-                </p>
-                <h6 className='title text-start fw-bold text-uppercase w-10 h-20 '>
+                </p>*/}
+                <p className='title fs-7 fw-bold text-uppercase'>
                     {book.title}
-                </h6>
+                </p>
                 <p className='bookId'>
                     {book.id}
                 </p>

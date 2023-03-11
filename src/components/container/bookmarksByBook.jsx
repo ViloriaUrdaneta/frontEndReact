@@ -3,7 +3,6 @@ import { getBookmarksByBook } from '../../services/axiosService';
 import BookmarkCard from '../pure/bookmark';
 import PropTypes from 'prop-types';
 import CreateBookmark from '../pure/forms/createBookmark';
-import '../../styles/stand.scss';
 
 const BookmarksByBook = ({ bookIdSearched }) => {
 
@@ -28,7 +27,7 @@ const BookmarksByBook = ({ bookIdSearched }) => {
 
     const Bookmarks = () => {
         return (
-            <div className='stand'>
+            <div>
                 {
                     bookmarks.map((bookmark, index) => {
                         return (

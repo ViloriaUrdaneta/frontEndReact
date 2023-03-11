@@ -6,7 +6,7 @@ import { postGoogleBook } from '../../services/axiosService'
 import '../../styles/googlebook.scss';
 
 
-const GoogleBookCard = ({ googleBook, triggerReset }) => {
+const GoogleBookCard = ({ googleBook, triggerResetLibrary, resetSearch }) => {
 
     
     const addGoogleBook = async () => {
@@ -16,7 +16,8 @@ const GoogleBookCard = ({ googleBook, triggerReset }) => {
                     console.log(response.data)
                 }})
             .catch((error) => {alert('error: ', error)});
-        triggerReset();
+        triggerResetLibrary();
+        resetSearch();
     }
 
 
@@ -49,7 +50,8 @@ const GoogleBookCard = ({ googleBook, triggerReset }) => {
 
 GoogleBookCard.propTypes = {
     googleBook : PropTypes.instanceOf(GoogleBook),
-    triggerReset: PropTypes.func.isRequired
+    triggerResetLibrary: PropTypes.func.isRequired,
+    resetSearch: PropTypes.func.isRequired
 }
 
 

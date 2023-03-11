@@ -8,13 +8,13 @@ const BookmarkList = () => {
 
     useEffect(() => {
         getBookmarks()
-        .then((response) => {
-            if(response.status === 200){
-                setBookmarks(response.data)
-                console.log(response.data)
-            }})
-        .catch((error) => {alert('error: ', error)})
-    }, []);
+            .then((response) => {
+                if(response.status === 200){
+                    setBookmarks(response.data)
+                    console.log(response.data)
+                }})
+            .catch((error) => {alert('error: ', error)})
+        }, []);
 
     const Bookmarks = () => {
         return (

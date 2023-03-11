@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import BookVolume from '../pure/book';
 import { getBookVolumes } from '../../services/axiosService';
 import '../../styles/stand.scss';
-import BookmarksByBook from './bookmarksByBook';
+import BookFile from '../pure/bookFile';
+//import BookmarksByBook from './bookmarksByBook';
+import BookmarkScroll from './bookmarkScroll';
 //import CreateBook from '../pure/forms/createBook';
 
 
@@ -11,7 +13,6 @@ const Library = (props) => {
     const [books, setBooks] = useState([]);
     const [bookIdSearched, setBookIdSearched] = useState('');
     
-
     useEffect(() => {
         function reset(){
             getBookVolumes()
@@ -26,9 +27,8 @@ const Library = (props) => {
             reset();
             console.log('se reseteo library')
         };
-    }, [props.stateToReset, bookIdSearched]);
+    }, [props.stateToReset]);
 
-    
     const searchBookmarks = (bookID) => {
         setBookIdSearched((prevIdsearched) => {
             console.log(`Current value of myState: ${prevIdsearched}`);
@@ -37,7 +37,6 @@ const Library = (props) => {
         })
         console.log('funcion searchBookmarks en library. BookId: ', bookIdSearched )
     }
-
 
     //Stand de libros
     const Stand = () => {
@@ -52,7 +51,6 @@ const Library = (props) => {
                     })
                 }  
             </div>
-
         )
     }
 
@@ -79,14 +77,20 @@ const Library = (props) => {
 
 
     return (
-        <div>
-            <div>
-                {bookStand}
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-5 books'>
+                    <h1 className='display-3 m-4'>Tus libros</h1>
+                    {bookStand}
+                    <hr className='line'></hr>
+                    <div>
+                        <BookFile></BookFile>
+                    </div>
+                </div>
+                <div className='col-7 bookmarks'>
+                    <BookmarkScroll bookIdSearched={bookIdSearched} ></BookmarkScroll>
+                </div>
             </div>
-            <div>
-                <BookmarksByBook bookIdSearched={bookIdSearched} ></BookmarksByBook>
-            </div>
-            
             {/*
             <div>
                 <CreateBook add={addBook}></CreateBook>

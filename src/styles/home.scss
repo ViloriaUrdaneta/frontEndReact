@@ -4,8 +4,25 @@
 
 .bookSearcher{
     background: #0B2838;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.bookSearcher::-webkit-scrollbar {
+    display: none;
 }
 
 .library{
-    background: #F9F1DA;
+    background: #0B2838;
+    //background: #F9F1DA;
+    //position: sticky;
+    //top: 0;
+}
+
+.bookmarks{
+    background: #0B2838;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.bookmarks::-webkit-scrollbar {
+    display: none;
 }

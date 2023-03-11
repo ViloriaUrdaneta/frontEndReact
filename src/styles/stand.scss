@@ -6,9 +6,18 @@
     -webkit-overflow-scrolling: touch;  
     scroll-behavior: smooth;
 }
+.stand::-webkit-scrollbar {
+    display: none;
+}
 
 .line {
-    border: 5px solid #0B2838;
-    
+    border: 3px solid #0B2838;
     box-shadow: 17px 16px 14px rgba(0, 0, 0, 0.33);
+    height: 2px; /* establece la altura de la línea */
+    background-color: #0B2838; /* establece el color de fondo de la línea */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); /* agrega una sombra a la línea */
+}
+
+.books{
+    background: #F9F1DA;
 }

@@ -21,8 +21,7 @@ const GoogleBooks = (props) => {
             }})
         .catch((error) => {alert('error: ', error)})
     }
-    
-    
+
 
     const GoogleBooksCards = () => {
         return (
@@ -30,13 +29,18 @@ const GoogleBooks = (props) => {
                 {
                     googleBooks.map((googleBook, index) => {
                         return (
-                            <GoogleBookCard key={index} googleBook={googleBook} triggerReset={props.resetState}>
+                            <GoogleBookCard key={index} googleBook={googleBook} triggerResetLibrary={props.resetStateLibrary} resetSearch={resetSearch}>
                             </GoogleBookCard>
                         )
                     })
                 }   
             </div>
         )
+    }
+
+    const resetSearch = () => {
+        setSearch('');
+        setGoogleBooks([]);
     }
 
     let results;
@@ -53,6 +57,7 @@ const GoogleBooks = (props) => {
 
     return (
         <div className='searcher container'>
+            <h3 className='display-6 m-3 text-light'>Busca tu libro en Google Books</h3>
             <div className='row'>
                 <div className='input-group searcherInput'>
                     <input type="text" value={search} onChange={handleInputChange} className='form-control' />
