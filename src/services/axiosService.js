@@ -4,6 +4,10 @@ export function getBookVolumes(){
     return APIRequest.get('/books/volumes');
 }
 
+export function getBookBy(id){
+    return APIRequest.get(`/books/by/${id}`);
+}
+
 export function getBookmarks(){
     return APIRequest.get('/bookmarks');
 }

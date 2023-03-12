@@ -27,7 +27,7 @@ const Library = (props) => {
             reset();
             console.log('se reseteo library')
         };
-    }, [props.stateToReset]);
+    }, [props.stateToReset, bookIdSearched]);
 
     const searchBookmarks = (bookID) => {
         setBookIdSearched((prevIdsearched) => {
@@ -84,7 +84,7 @@ const Library = (props) => {
                     {bookStand}
                     <hr className='line'></hr>
                     <div>
-                        <BookFile></BookFile>
+                        <BookFile bookIdSearched={bookIdSearched}></BookFile>
                     </div>
                 </div>
                 <div className='col-7 bookmarks'>
