@@ -15,10 +15,10 @@ const BookVolume = ({ book, searchBookmarksBy, BookID }) => {
     return (
         <div>
             <div className='book text-wrap' onClick={showBookmarks}>
-                {/*<p className='author fs-7 fw-bold'>
+                <p className='author h6 fw-bold'>
                     {book.author}
-                </p>*/}
-                <p className='title fs-7 fw-bold text-uppercase'>
+                </p>
+                <p className='title h6 text-uppercase'>
                     {book.title}
                 </p>
                 <p className='bookId'>

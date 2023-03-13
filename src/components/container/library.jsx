@@ -74,7 +74,10 @@ const Library = (props) => {
 
     let bookInfo;
     if(bookIdSearched !== ''){
-        bookInfo = <BookFile bookIdSearched={bookIdSearched} resetStateBookmarks={handleResetBookmarks}></BookFile>
+        bookInfo = <BookFile 
+                        bookIdSearched={bookIdSearched} 
+                        resetStateBookmarks={handleResetBookmarks}>
+                    </BookFile>
     } else{
         bookInfo = <div></div>
     }
@@ -92,7 +95,7 @@ const Library = (props) => {
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-5 books'>
-                    <h1 className='display-3 m-4'>Tus libros</h1>
+                    <h1 className='display-5 fw-normal m-4'>Tus libros</h1>
                     {bookStand}
                     <hr className='line'></hr>
                     <div>

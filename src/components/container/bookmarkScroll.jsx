@@ -42,21 +42,21 @@ const BookmarkScroll = ({ bookIdSearched, restartState }) => {
     if(bookmarksByBook.length > 0){
         scroll = (
             <div>
-                <h3 className='display-6 m-3 text-light'>Tus notas</h3>
+                <p className='h3 m-3 text-light fw-normal'>Tus notas</p>
                 <BookmarksByBook></BookmarksByBook>
             </div>
         )
     } else if(bookmarksByBook.length === 0 && bookIdSearched === '') {
         scroll = (
             <div>
-                <h3 className='display-6 m-3 text-light'>Tus notas</h3>
+                <p className='h3 m-3 text-light fw-normal'>Tus notas</p>
                 <BookmarkList></BookmarkList>
             </div>
         )
     } else if(bookmarksByBook.length === 0 && bookIdSearched !== ''){
         scroll = (
             <div>
-                <h6 className='display-6 m-3 text-light'>No hay marcapáginas para este libro todavía</h6>
+                <h6 className='h3 m-3 text-light fw-normal'>No hay marcapáginas para este libro todavía</h6>
             </div>
         )
     }

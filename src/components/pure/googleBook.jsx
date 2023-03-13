@@ -23,7 +23,44 @@ const GoogleBookCard = ({ googleBook, triggerResetLibrary, resetSearch }) => {
 
     return (
         <div>
-            <div className='card googleBook'>
+            <div className='card googleBook border-light text-white'>
+                
+                    
+                    <img src={googleBook.thumbnail} alt='' className='googleThumbnail rounded mx-auto'/>
+                    
+                        <div className='card-body'>
+                            <p className='card-title h5'>
+                                {googleBook.title}
+                            </p>
+                            <p className='card-text'>
+                                {googleBook.authors}
+                            </p>
+                            <div className='card-body'>
+                            <button onClick={addGoogleBook} className='btn btn-outline-danger btn-sm'>Agregar a la biblioteca</button>
+                            <br></br>
+                            <a href={googleBook.link} target='_blank' rel="noreferrer" className='card-link link-primary'> Ir a Google PLay </a>
+                            </div>
+                        </div>
+
+                
+            </div>   
+        </div>
+    );
+};
+
+
+GoogleBookCard.propTypes = {
+    googleBook : PropTypes.instanceOf(GoogleBook),
+    triggerResetLibrary: PropTypes.func.isRequired,
+    resetSearch: PropTypes.func.isRequired
+}
+
+
+export default GoogleBookCard;
+
+
+/*
+<div className='card googleBook'>
                 <div className='row g-0'>
                     <div className='col-md-4'>
                         <img src={googleBook.thumbnail} alt='' className='googleThumbnail img-fluid'/>
@@ -42,17 +79,4 @@ const GoogleBookCard = ({ googleBook, triggerResetLibrary, resetSearch }) => {
                         </div>
                     </div>
                 </div>
-            </div>   
-        </div>
-    );
-};
-
-
-GoogleBookCard.propTypes = {
-    googleBook : PropTypes.instanceOf(GoogleBook),
-    triggerResetLibrary: PropTypes.func.isRequired,
-    resetSearch: PropTypes.func.isRequired
-}
-
-
-export default GoogleBookCard;
+            </div> */
