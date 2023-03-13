@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import BookVolume from '../pure/book';
 import { getBookVolumes } from '../../services/axiosService';
 import '../../styles/stand.scss';
@@ -12,6 +12,11 @@ const Library = (props) => {
 
     const [books, setBooks] = useState([]);
     const [bookIdSearched, setBookIdSearched] = useState('');
+    
+    const [stateToResetBookmarks, setStateToResetBookmarks] = useState(false);
+    function handleResetBookmarks() {
+        setStateToResetBookmarks(prevState => !prevState);
+    }
     
     useEffect(() => {
         function reset(){
@@ -27,12 +32,10 @@ const Library = (props) => {
             reset();
             console.log('se reseteo library')
         };
-    }, [props.stateToReset, bookIdSearched]);
+    }, [props.stateToReset]);
 
     const searchBookmarks = (bookID) => {
-        setBookIdSearched((prevIdsearched) => {
-            console.log(`Current value of myState: ${prevIdsearched}`);
-            console.log(`New value of myState: ${bookID}`);
+        setBookIdSearched(() => {
             return bookID
         })
         console.log('funcion searchBookmarks en library. BookId: ', bookIdSearched )
@@ -45,7 +48,11 @@ const Library = (props) => {
                 {
                     books.map((book, index) => {
                         return (
-                            <BookVolume key={index} book={book} searchBookmarksBy={searchBookmarks} bookID={''}>
+                            <BookVolume 
+                                key={index} 
+                                book={book} 
+                                searchBookmarksBy={searchBookmarks} 
+                                bookID={''}>
                             </BookVolume>
                         )
                     })
@@ -55,7 +62,6 @@ const Library = (props) => {
     }
 
     let bookStand;
-
     if(books.length > 0){
         bookStand = <Stand></Stand>
     } else{
@@ -66,6 +72,12 @@ const Library = (props) => {
         )
     }
 
+    let bookInfo;
+    if(bookIdSearched !== ''){
+        bookInfo = <BookFile bookIdSearched={bookIdSearched} resetStateBookmarks={handleResetBookmarks}></BookFile>
+    } else{
+        bookInfo = <div></div>
+    }
 
     /*
     función traida del formulario addBook para crear nuevos libros
@@ -84,11 +96,14 @@ const Library = (props) => {
                     {bookStand}
                     <hr className='line'></hr>
                     <div>
-                        <BookFile bookIdSearched={bookIdSearched}></BookFile>
+                        {bookInfo}
                     </div>
                 </div>
                 <div className='col-7 bookmarks'>
-                    <BookmarkScroll bookIdSearched={bookIdSearched} ></BookmarkScroll>
+                    <BookmarkScroll 
+                        bookIdSearched={bookIdSearched} 
+                        restartState={stateToResetBookmarks}>
+                    </BookmarkScroll>
                 </div>
             </div>
             {/*

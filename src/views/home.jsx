@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
-import BookmarkScroll from '../components/container/bookmarkScroll';
 import GoogleBooks from '../components/container/googleBooks';
 import Library from '../components/container/library'
 import '../styles/home.scss';

@@ -14,13 +14,13 @@ const GoogleBooks = (props) => {
 
     const handleClick = () => {
         getGoogle(search)
-        .then((response) => {
-            if(response.status === 200){
-                setGoogleBooks(response.data)
-                console.log(response.data)
-            }})
-        .catch((error) => {alert('error: ', error)})
-    }
+            .then((response) => {
+                if(response.status === 200){
+                    setGoogleBooks(response.data)
+                    console.log(response.data)
+                }})
+            .catch((error) => {alert('error: ', error)})
+        }
 
 
     const GoogleBooksCards = () => {
@@ -29,7 +29,11 @@ const GoogleBooks = (props) => {
                 {
                     googleBooks.map((googleBook, index) => {
                         return (
-                            <GoogleBookCard key={index} googleBook={googleBook} triggerResetLibrary={props.resetStateLibrary} resetSearch={resetSearch}>
+                            <GoogleBookCard 
+                                key={index} 
+                                googleBook={googleBook} 
+                                triggerResetLibrary={props.resetStateLibrary} 
+                                resetSearch={resetSearch}>
                             </GoogleBookCard>
                         )
                     })

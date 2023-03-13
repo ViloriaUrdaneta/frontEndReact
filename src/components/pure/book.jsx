@@ -9,10 +9,7 @@ const BookVolume = ({ book, searchBookmarksBy, BookID }) => {
 
     function showBookmarks(){
         BookID = book.id;
-        //triggerResetBookmarks();
         searchBookmarksBy(BookID);
-        //setBookIdSearched(book.id);
-        console.log('funcion showBookmarks en BookVolume, BookId: ',book.id )
     }
 
     return (

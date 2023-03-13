@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { getBookmarksByBook } from '../../services/axiosService';
 import BookmarkCard from '../pure/bookmark';
 
-const BookmarkScroll = ({ bookIdSearched }) => {
+const BookmarkScroll = ({ bookIdSearched, restartState }) => {
 
     const [bookmarksByBook, setBookmarksByBook] = useState([]);
 
@@ -19,7 +19,7 @@ const BookmarkScroll = ({ bookIdSearched }) => {
                 }})
             .catch((error) => {console.log(error, 'boobkId nulo')})
         }
-    }, [bookIdSearched]);
+    }, [bookIdSearched, restartState]);
 
     const BookmarksByBook = () => {
         return (
@@ -70,7 +70,8 @@ const BookmarkScroll = ({ bookIdSearched }) => {
 }
 
 BookmarkScroll.propTypes = {
-    bookIdSearched: PropTypes.string
+    bookIdSearched: PropTypes.string,
+    restartState: PropTypes.func
 };
 
 export default BookmarkScroll;
