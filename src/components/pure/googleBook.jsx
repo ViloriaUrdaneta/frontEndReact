@@ -23,26 +23,22 @@ const GoogleBookCard = ({ googleBook, triggerResetLibrary, resetSearch }) => {
 
     return (
         <div>
-            <div className='card googleBook border-light text-white'>
-                
-                    
-                    <img src={googleBook.thumbnail} alt='' className='googleThumbnail rounded mx-auto'/>
-                    
-                        <div className='card-body'>
-                            <p className='card-title h5'>
-                                {googleBook.title}
-                            </p>
-                            <p className='card-text'>
-                                {googleBook.authors}
-                            </p>
-                            <div className='card-body'>
-                            <button onClick={addGoogleBook} className='btn btn-outline-danger btn-sm'>Agregar a la biblioteca</button>
-                            <br></br>
-                            <a href={googleBook.link} target='_blank' rel="noreferrer" className='card-link link-primary'> Ir a Google PLay </a>
-                            </div>
+            <div className='card googleBook  text-white'>
+                <img src={googleBook.thumbnail} alt='' className='googleThumbnail rounded mx-auto'/>
+                <div className='card-body infoBook border-light'>
+                    <p className='card-title h5'>
+                        {googleBook.title}
+                    </p>
+                    <p className='card-text'>
+                        {googleBook.authors}
+                    </p>
+                    <div className='container'>
+                        <div className='row'>
+                            <button onClick={addGoogleBook} className='btn btn-info btn-sm col-6 fw-bold'>Agregar </button>
+                            <a href={googleBook.link} target='_blank' rel="noreferrer" className='card-link link-danger col-6'>Google Play</a>
                         </div>
-
-                
+                    </div>
+                </div>
             </div>   
         </div>
     );

@@ -61,7 +61,7 @@ const GoogleBooks = (props) => {
 
     return (
         <div className='searcher container'>
-            <h3 className='h4 mt-3 text-light fw-normal'>Buscar en Google Books</h3>
+            <h3 className='h4 mt-3 text-light fw-normal' onClick={resetSearch}>Buscar en Google Books</h3>
             <div className='row'>
                 <div className='input-group searcherInput'>
                     <input type="text" value={search} onChange={handleInputChange} className='form-control' />
