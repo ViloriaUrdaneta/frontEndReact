@@ -4,6 +4,8 @@ import { Book } from '../../models/book.model';
 import { getBookBy } from '../../services/axiosService';
 import AddBookmark from './modals/addBookmark';
 
+import '../../styles/bookfiles.scss';
+
 const BookFile = ({ bookIdSearched, resetStateBookmarks }) => {
 
     const [bookInfo, setBookInfo] = useState({});
@@ -30,19 +32,79 @@ const BookFile = ({ bookIdSearched, resetStateBookmarks }) => {
         setOpenModal(false);
     };
 
-    return (
-        <div>
-            <h1>bookfile</h1>
-            <div>
-                <p className='fs-7 fw-bold text-uppercase'>
-                    {bookInfo.title}
-                </p>
+    const ThumbnailFile = () => {
+        return (
+            <div className='bookfilecards'>
+                <div className='card'>
+                    <div className='row g-0'>
+                            <div className='col-md-4'>
+                                <img src={bookInfo.thumbnail} alt='' className='googleThumbnail img-fluid rounded'/>
+                            </div>
+                            <div className='col-md-8'>
+                                <div className='card-body'>
+                                    <h4 className='card-title'>
+                                        {bookInfo.title}
+                                    </h4>
+                                    <h6 className='card-text'>
+                                        {bookInfo.authorName}
+                                    </h6>
+                                    
+                                </div>
+                            </div>
+                            <p className='card-body'>
+                                        {bookInfo.description}
+                                    </p>
+                            <div className='text-center'>
+                                <div className='card-footer'>
+                                    <button onClick={handleOpenModal} className='btn btn-info btn-sm'>
+                                        Agregar nota
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    <p className='bookId'>
+                        {bookInfo.id}
+                    </p>
+                </div>
+            </div>
+        )
+    }
+    const NoThumbnailFile = () => {
+        return (
+            <div className='card'>        
+                <div className='card-body'>
+                    <h4 className='card-title'>
+                        {bookInfo.title}
+                    </h4>
+                    <h6 className='card-text'>
+                        {bookInfo.authorName}
+                    </h6>
+                </div>
+                <div className='text-center'>
+                    <div className='card-footer'>
+                        <button onClick={handleOpenModal} className='btn btn-info btn-sm'>
+                            Agregar nota
+                        </button>
+                    </div>
+                </div>
                 <p className='bookId'>
                     {bookInfo.id}
                 </p>
-                <button onClick={handleOpenModal} className='btn btn-outline-danger btn-sm'>
-                    Agregar nota
-                </button>
+            </div>
+        )
+    }
+
+    let file;
+    if(bookInfo.thumbnail){
+        file = <ThumbnailFile></ThumbnailFile>
+    } else{
+        file = <NoThumbnailFile></NoThumbnailFile>
+    }
+
+    return (
+        <div>
+            <div>
+                { file }
             </div>
             {openModal && (
                 <AddBookmark 

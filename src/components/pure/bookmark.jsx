@@ -10,12 +10,19 @@ const BookmarkCard = ({ bookmark }) => {
     return (
         <div>
             <div className='card m-2 bookmark'>
-                <h6 className='card-header'>
-                    Página: {bookmark.page}
-                </h6>
-                <p className='card-body'>
-                    {bookmark.resume}
-                </p>
+                <div className='card-header'>
+                    <h5>
+                        {bookmark.bookName}
+                    </h5>
+                </div>
+                <div className='card-body'>
+                    <h6>
+                        Página: {bookmark.page}
+                    </h6>
+                    <p>
+                        {bookmark.resume}
+                    </p>
+                </div>
             </div>
         </div>
     );

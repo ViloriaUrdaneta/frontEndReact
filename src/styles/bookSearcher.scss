@@ -2,4 +2,10 @@
    display: block;
 }
 
-
+.results{
+   overflow-y: scroll;
+   height: 88vh;
+}
+.results::-webkit-scrollbar {
+   display: none;
+}
