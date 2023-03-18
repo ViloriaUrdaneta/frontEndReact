@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './views/home';
+import LoginPage from './views/loginPage';
 
-//import BookmarkList from './components/container/bookmarkList';
 
 //import { Routes, Route } from 'react-router-dom';
 
@@ -11,10 +11,11 @@ import Home from './views/home';
 function App() {
   return (
     <div className="App">
-
+      
+      <LoginPage></LoginPage>
       <Home></Home>
+      
       {/*
-      <BookmarkList></BookmarkList>
         {/*<Routes>
           <Route path='/' element={<Library />} />
         </Routes>*/}

@@ -27,3 +27,7 @@ export function postGoogleBook(id){
 export function postBookmark(page, resume, book){
     return APIRequest.post('/bookmarks', { page: page, resume: resume, book: book });
 }
+
+export function login(email, password){
+    return APIRequest.post('/auth/login', { email: email, password: password });
+}
