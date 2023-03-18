@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Login from '../components/pure/modals/login.jsx';
+import Register from '../components/pure/modals/register.jsx';
 import { login, register } from '../services/axiosService.js'
 import { setAuthToken } from '../utils/config/axios.config.js';
 
@@ -9,7 +11,23 @@ const LoginPage = (props) => {
 
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
-    const [name, setName] = useState('');
+    const [registerName, setRegisterName] = useState('');
+
+    const [opeRegisterModal, setOpenRegisterModal] = useState(false);
+    const handleOpenRegisterModal = () => {
+        setOpenRegisterModal(true);
+    };
+    const handleCloseRegisterModal = () => {
+        setOpenRegisterModal(false);
+    };
+
+    const [opeLoginModal, setOpenLoginModal] = useState(false);
+    const handleOpenLoginModal = () => {
+        setOpenLoginModal(true);
+    };
+    const handleCloseLoginModal = () => {
+        setOpenLoginModal(false);
+    };
     
     const handleLogin = (event) => {
         event.preventDefault();
@@ -26,17 +44,16 @@ const LoginPage = (props) => {
             .catch((error) => {alert('error: ', error)})
     }
 
-    const handleLogout = () => {
-        //setUser(null)
-        //sessionStorage.setItem('userToken', user);
-    }
-
     const handleRegister = (event) => {
         event.preventDefault();
-        register(name, registerEmail, registerPassword)
+        register(registerName, registerEmail, registerPassword)
             .then((response) => {
                 if(response.status === 200){
                     console.log(response.data)
+                    setTimeout(() => {
+                        setOpenRegisterModal(false);
+                    }, 1000)
+                    
                 }
             })
         .catch((error) => {alert('error: ', error)})
@@ -44,55 +61,45 @@ const LoginPage = (props) => {
 
     return (
         <div>
-            <div>
-                <h1>Register</h1>
-                <form onSubmit={handleRegister}>
-                    <input
-                        type='text'
-                        value={name}
-                        name='name'
-                        placeholder='name'
-                        onChange={({target}) => setName(target.value)}>
-                    </input>
-                    <input
-                        type='text'
-                        value={registerEmail}
-                        name='email'
-                        placeholder='email'
-                        onChange={({target}) => setRegisterEmail(target.value)}>
-                    </input>
-                    <input
-                        type='password'
-                        value={registerPassword}
-                        name='password'
-                        placeholder='password'
-                        onChange={({target}) => setRegisterPassword(target.value)}>
-                    </input>
-                    <button>
-                        Register
+            <div className='container'>
+                <div className='row'>
+                    <button onClick={handleOpenRegisterModal} className='btn btn-info btn-lg col-2 m-4'>
+                        Registrarse
                     </button>
-                </form>
+
+                    <button onClick={handleOpenLoginModal} className='btn btn-info btn-lg col-2 m-4'>
+                        Ingresar
+                    </button>
+                </div>
             </div>
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <input
-                    type='text'
-                    value={loginEmail}
-                    name='email'
-                    placeholder='email'
-                    onChange={({target}) => setLoginEmail(target.value)}>
-                </input>
-                <input
-                    type='password'
-                    value={loginPassword}
-                    name='password'
-                    placeholder='password'
-                    onChange={({target}) => setLoginPassword(target.value)}>
-                </input>
-                <button>
-                    Login
-                </button>
-            </form>
+            {
+                opeRegisterModal && (
+                    <Register
+                        onClose={handleCloseRegisterModal}
+                        registerName={registerName}
+                        registerEmail={registerEmail}
+                        registerPassword={registerPassword}
+                        handleNameChange={({target}) => setRegisterName(target.value)}
+                        handleRegisterEmailChange={({target}) => setRegisterEmail(target.value)}
+                        handleRegisterPasswordChange={({target}) => setRegisterPassword(target.value)}
+                        handleRegisterSubmit={handleRegister}>
+                    </Register>
+                )
+            }
+            {
+                opeLoginModal && (
+                    <Login
+                        onClose={handleCloseLoginModal}
+                        loginEmail={loginEmail}
+                        loginPassword={loginPassword}
+                        handleLoginEmail={({target}) => setLoginEmail(target.value)}
+                        handleLoginPassword={({target}) => setLoginPassword(target.value)}
+                        handleLoginSubmit={handleLogin}>+
+                    </Login>
+                )
+            }
+            
+            
         </div>
     );
 }

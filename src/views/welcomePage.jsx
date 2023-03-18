@@ -22,17 +22,6 @@ const WelcomePage = () => {
             setUser(loggedUser);
         }
     }, [])
-
-    let view;
-    if (user !== null){
-        view = <Home 
-                    logOut={handleLogOut}>
-                </Home>
-    }else {
-        view = <LoginPage 
-                    logUser={handleResetLogState}
-                ></LoginPage>
-    }
     */
 
     return (
