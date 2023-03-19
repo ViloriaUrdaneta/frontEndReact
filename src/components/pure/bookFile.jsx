@@ -36,32 +36,27 @@ const BookFile = ({ bookIdSearched, resetStateBookmarks }) => {
         return (
             <div className='bookfilecards'>
                 <div className='card'>
-                    <div className='row g-0'>
-                            <div className='col-md-4'>
-                                <img src={bookInfo.thumbnail} alt='' className='googleThumbnail img-fluid rounded'/>
-                            </div>
-                            <div className='col-md-8'>
-                                <div className='card-body'>
-                                    <h4 className='card-title'>
-                                        {bookInfo.title}
-                                    </h4>
-                                    <h6 className='card-text'>
-                                        {bookInfo.authorName}
-                                    </h6>
-                                    
-                                </div>
-                            </div>
-                            <p className='card-body'>
-                                        {bookInfo.description}
-                                    </p>
-                            <div className='text-center'>
-                                <div className='card-footer'>
-                                    <button onClick={handleOpenModal} className='btn btn-info btn-sm'>
-                                        Agregar nota
-                                    </button>
-                                </div>
-                            </div>
+                    <div className='clearfix'>    
+                        <img src={bookInfo.thumbnail} alt='' className='col-md-3 m-3 float-md-start ms-md-3 rounded'/>
+                        <div className='card-body'>
+                            <h4 className='card-title'>
+                                {bookInfo.title}
+                            </h4>
+                            <h6 className='card-text'>
+                                {bookInfo.authorName}
+                            </h6>                                
                         </div>
+                        <p className='card-body'>
+                            {bookInfo.description}
+                        </p>
+                    </div>
+                    <div className='text-center'>
+                        <div className='card-footer'>
+                            <button onClick={handleOpenModal} className='btn btn-info btn-sm'>
+                                Agregar nota
+                            </button>
+                        </div>
+                    </div>
                     <p className='bookId'>
                         {bookInfo.id}
                     </p>

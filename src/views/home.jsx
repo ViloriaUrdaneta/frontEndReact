@@ -19,7 +19,7 @@ const Home = (props) => {
                     Cerrar sesión
                 </button>
             </nav>
-            <div className='container'>
+            <div className='container-fluid'>
                 <div className='row vh-100'>
                     <div className='col-12 col-sm-6 col-md-9 library'>
                         <Library stateToReset={stateToResetLibrary}></Library>

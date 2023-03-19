@@ -94,7 +94,7 @@ const Library = (props) => {
     return (
         <div className='container-fluid'>
             <div className='row'>
-                <div className='col-5 books'>
+                <div className='col-6 books'>
                     <h1 className='display-5 fw-normal m-4'>Tus libros</h1>
                     {bookStand}
                     <hr className='line'></hr>
@@ -102,7 +102,7 @@ const Library = (props) => {
                         {bookInfo}
                     </div>
                 </div>
-                <div className='col-7 bookmarks'>
+                <div className='col-6 bookmarks'>
                     <BookmarkScroll 
                         bookIdSearched={bookIdSearched} 
                         restartState={stateToResetBookmarks}>
