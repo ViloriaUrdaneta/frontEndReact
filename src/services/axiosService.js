@@ -8,12 +8,20 @@ export function getBookBy(id){
     return APIRequest.get(`/books/by/${id}`);
 }
 
+export function getBooksByUser(){
+    return APIRequest.get('/books/byUser');
+}
+
 export function getBookmarks(){
     return APIRequest.get('/bookmarks');
 }
 
 export function getBookmarksByBook(id){
     return APIRequest.get(`/bookmarks/bybook/${id}`);
+}
+
+export function getBookmarksByUser(){
+    return APIRequest.get('/bookmarks/byUser');
 }
 
 export function getGoogle(term){

@@ -3,6 +3,7 @@ import Login from '../components/pure/modals/login.jsx';
 import Register from '../components/pure/modals/register.jsx';
 import { login, register } from '../services/axiosService.js'
 import { setAuthToken } from '../utils/config/axios.config.js';
+import '../styles/home.scss';
 
 const LoginPage = (props) => {
 
@@ -60,16 +61,20 @@ const LoginPage = (props) => {
     }
 
     return (
-        <div>
-            <div className='container'>
-                <div className='row'>
-                    <button onClick={handleOpenRegisterModal} className='btn btn-info btn-lg col-2 m-4'>
-                        Registrarse
-                    </button>
-
-                    <button onClick={handleOpenLoginModal} className='btn btn-info btn-lg col-2 m-4'>
-                        Ingresar
-                    </button>
+        <div className='loginPage'>
+            <h1 className='display-1 fw-normal mx-5 text-white'>
+                APPrentice
+            </h1>
+            <div className='buttons'>
+                <div className='container'>
+                    <div className='row'>
+                        <button onClick={handleOpenRegisterModal} className='btn btn-info btn-lg col-2 m-4'>
+                            Registrarse
+                        </button>
+                        <button onClick={handleOpenLoginModal} className='btn btn-info btn-lg col-2 m-4'>
+                            Ingresar
+                        </button>
+                    </div>
                 </div>
             </div>
             {
@@ -98,8 +103,6 @@ const LoginPage = (props) => {
                     </Login>
                 )
             }
-            
-            
         </div>
     );
 }

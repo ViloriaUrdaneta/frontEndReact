@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import BookmarkCard from '../pure/bookmark';
-import { getBookmarks } from '../../services/axiosService';
+import { getBookmarksByUser } from '../../services/axiosService';
 
 const BookmarkList = () => {
 
     const [bookmarks, setBookmarks] = useState([]);
 
     useEffect(() => {
-        getBookmarks()
+        getBookmarksByUser()
             .then((response) => {
                 if(response.status === 200){
                     setBookmarks(response.data)
@@ -40,7 +40,7 @@ const BookmarkList = () => {
     } else{
         bookmarksTable = (
             <div>
-                <h3>No hay marcapáginas todavía</h3>
+                <h3 className='text-white'>No hay marcapáginas todavía</h3>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react';
 import BookVolume from '../pure/book';
-import { getBookVolumes } from '../../services/axiosService';
+import { getBooksByUser } from '../../services/axiosService';
 import '../../styles/stand.scss';
 import BookFile from '../pure/bookFile';
 //import BookmarksByBook from './bookmarksByBook';
@@ -20,7 +20,7 @@ const Library = (props) => {
     
     useEffect(() => {
         function reset(){
-            getBookVolumes()
+            getBooksByUser()
                 .then((response) => {
                     if(response.status === 200){
                         setBooks(response.data)
